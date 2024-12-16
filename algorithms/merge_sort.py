@@ -19,15 +19,11 @@ Complexity:
 
 import pygame
 from constants import *
+from .base_sort import BaseSort
 
-class MergeSort:
+class MergeSort(BaseSort):
     def __init__(self, array, colors, visualizer, sound_manager):
-        self.array = array
-        self.colors = colors
-        self.visualizer = visualizer
-        self.sound_manager = sound_manager
-        self.comparisons = 0
-        self.swaps = 0
+        super().__init__(array, colors, visualizer, sound_manager)
         self.sort_interrupt = False
 
     def sort(self, start, end):
@@ -49,7 +45,7 @@ class MergeSort:
             self.colors[start + i] = YELLOW
             self.colors[mid + j] = YELLOW
             self.sound_manager.compare_sound.play()
-            self.visualizer.draw_array(self.array, self.colors, WIDTH // len(self.array))
+            self.update_display()
             pygame.time.wait(1)
 
             if left[i] < right[j]:
@@ -61,7 +57,7 @@ class MergeSort:
 
             self.swaps += 1
             self.colors[k] = GREEN
-            self.visualizer.draw_array(self.array, self.colors, WIDTH // len(self.array))
+            self.update_display()
             pygame.time.wait(1)
             self.colors[k] = WHITE
             k += 1
@@ -72,7 +68,7 @@ class MergeSort:
             self.swaps += 1
             self.colors[k] = GREEN
             self.sound_manager.compare_sound.play()
-            self.visualizer.draw_array(self.array, self.colors, WIDTH // len(self.array))
+            self.update_display()
             pygame.time.wait(1)
             self.colors[k] = WHITE
             i += 1
@@ -83,7 +79,7 @@ class MergeSort:
             self.swaps += 1
             self.colors[k] = GREEN
             self.sound_manager.compare_sound.play()
-            self.visualizer.draw_array(self.array, self.colors, WIDTH // len(self.array))
+            self.update_display()
             pygame.time.wait(1)
             self.colors[k] = WHITE
             j += 1
