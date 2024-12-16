@@ -1,6 +1,7 @@
 # 📊 Sorting Algorithms Visualization
 
 An interactive Python application that visualizes various sorting algorithms using Pygame. Watch and hear how different sorting algorithms work in real-time! 🎵
+<img src="imgs/img.png">
 
 ## ✨ Features
 
