@@ -54,7 +54,8 @@ class Visualizer:
             ("1. Quicksort", RED),
             ("2. Merge Sort", GREEN),
             ("3. Bubble Sort", BLUE),
-            ("4. Heapsort", YELLOW)
+            ("4. Heapsort", YELLOW),
+            ("5. Insertion Sort", WHITE)  # Ajout du nouvel algorithme
         ]
         
         # Display title

@@ -4,7 +4,7 @@ import time
 from constants import *
 from sound_manager import SoundManager
 from visualization import Visualizer
-from algorithms import QuickSort, MergeSort, BubbleSort, HeapSort
+from algorithms import QuickSort, MergeSort, BubbleSort, HeapSort, InsertionSort
 
 def generate_array(size):
     arr = list(range(1, size + 1))
@@ -39,7 +39,8 @@ def main():
         pygame.K_1: (QuickSort, "Quicksort"),
         pygame.K_2: (MergeSort, "Merge Sort"),
         pygame.K_3: (BubbleSort, "Bubble Sort"),
-        pygame.K_4: (HeapSort, "Heapsort")
+        pygame.K_4: (HeapSort, "Heapsort"),
+        pygame.K_5: (InsertionSort, "Insertion Sort")
     }
     
     running = True
