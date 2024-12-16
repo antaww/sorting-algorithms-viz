@@ -26,7 +26,7 @@ def main():
     
     input_active = False
     input_text = str(array_size)
-    input_box = pygame.Rect(WIDTH // 2 - 100, HEIGHT - 80, 200, 40)
+    input_box = pygame.Rect(WIDTH // 2 + 250, HEIGHT - 120, 100, 35)
     
     # Variables pour les statistiques
     selected_algorithm = None
@@ -65,17 +65,18 @@ def main():
                     if input_active:
                         if event.key == pygame.K_RETURN:
                             try:
-                                new_size = int(input_text)
+                                new_size = min(int(input_text), 2000)
                                 if 10 <= new_size <= 2000:
                                     array_size = new_size
                                     array = generate_array(array_size)
                                     colors = [WHITE] * array_size
+                                input_text = str(array_size)
                             except ValueError:
-                                pass
+                                input_text = str(array_size)
                             input_active = False
                         elif event.key == pygame.K_BACKSPACE:
                             input_text = input_text[:-1]
-                        elif event.unicode.isdigit():
+                        elif event.unicode.isdigit() and len(input_text) < 4:
                             input_text = input_text + event.unicode
                     elif event.key == pygame.K_TAB:
                         input_active = True
