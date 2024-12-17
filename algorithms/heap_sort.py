@@ -46,7 +46,7 @@ class HeapSort(BaseSort):
             self.colors[i] = GREEN
             self.colors[0] = RED
             self.update_display()
-            pygame.time.wait(1)
+            pygame.time.wait(SORTING_DELAY)
             self.colors[0] = WHITE
             self._heapify(i, 0)
 
@@ -61,7 +61,7 @@ class HeapSort(BaseSort):
             self.colors[largest] = BLUE
             self.sound_manager.compare_sound.play()
             self.update_display()
-            pygame.time.wait(1)
+            pygame.time.wait(SORTING_DELAY)
 
             if self.array[left] > self.array[largest]:
                 largest = left
@@ -74,7 +74,7 @@ class HeapSort(BaseSort):
             self.colors[largest] = BLUE
             self.sound_manager.compare_sound.play()
             self.update_display()
-            pygame.time.wait(1)
+            pygame.time.wait(SORTING_DELAY)
 
             if self.array[right] > self.array[largest]:
                 largest = right
@@ -88,6 +88,6 @@ class HeapSort(BaseSort):
             self.colors[i] = GREEN
             self.colors[largest] = RED
             self.update_display()
-            pygame.time.wait(1)
+            pygame.time.wait(SORTING_DELAY)
             self.colors[largest] = WHITE
             self._heapify(n, largest) 

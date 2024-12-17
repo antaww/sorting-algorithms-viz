@@ -46,7 +46,7 @@ class MergeSort(BaseSort):
             self.colors[mid + j] = YELLOW
             self.sound_manager.compare_sound.play()
             self.update_display()
-            pygame.time.wait(1)
+            pygame.time.wait(SORTING_DELAY)
 
             if left[i] < right[j]:
                 self.array[k] = left[i]
@@ -58,18 +58,17 @@ class MergeSort(BaseSort):
             self.swaps += 1
             self.colors[k] = GREEN
             self.update_display()
-            pygame.time.wait(1)
+            pygame.time.wait(SORTING_DELAY)
             self.colors[k] = WHITE
             k += 1
 
-        # Copier les éléments restants
         while i < len(left) and not self.sort_interrupt:
             self.array[k] = left[i]
             self.swaps += 1
             self.colors[k] = GREEN
             self.sound_manager.compare_sound.play()
             self.update_display()
-            pygame.time.wait(1)
+            pygame.time.wait(SORTING_DELAY)
             self.colors[k] = WHITE
             i += 1
             k += 1
@@ -80,7 +79,7 @@ class MergeSort(BaseSort):
             self.colors[k] = GREEN
             self.sound_manager.compare_sound.play()
             self.update_display()
-            pygame.time.wait(1)
+            pygame.time.wait(SORTING_DELAY)
             self.colors[k] = WHITE
             j += 1
             k += 1 

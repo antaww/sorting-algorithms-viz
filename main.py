@@ -96,6 +96,7 @@ def main():
                         current_sorter.sort(0, len(array))
                     else:
                         current_sorter.sort()
+                    current_sorter.final_sweep()
                     end_time = time.time()
                     current_sorter.end_time = end_time
                     sound_manager.complete_sound.play()

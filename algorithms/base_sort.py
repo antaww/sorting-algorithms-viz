@@ -1,4 +1,4 @@
-from constants import WIDTH
+from constants import WIDTH, WHITE, SWEEP_DELAY
 import pygame
 
 class BaseSort:
@@ -29,4 +29,12 @@ class BaseSort:
             WIDTH // len(self.array),
             self.get_stats()
         )
-        pygame.display.flip() 
+        pygame.display.flip()
+
+    def final_sweep(self):
+        # Effet de balayage final
+        for i in range(len(self.array)):
+            self.colors[i] = WHITE
+            self.sound_manager.sweep_sound.play()
+            self.update_display()
+            pygame.time.wait(SWEEP_DELAY)

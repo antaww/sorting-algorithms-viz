@@ -37,14 +37,14 @@ class InsertionSort(BaseSort):
                 
             key = self.array[i]
             j = i - 1
-            self.colors[i] = BLUE  # Current element being inserted
+            self.colors[i] = BLUE
             
             while j >= 0 and not self.sort_interrupt:
                 self.comparisons += 1
-                self.colors[j] = RED  # Element being compared
+                self.colors[j] = RED
                 self.sound_manager.compare_sound.play()
                 self.update_display()
-                pygame.time.wait(1)
+                pygame.time.wait(SORTING_DELAY)
                 
                 if self.array[j] > key:
                     self.swaps += 1
@@ -52,7 +52,7 @@ class InsertionSort(BaseSort):
                     self.colors[j] = GREEN
                     self.sound_manager.swap_sound.play()
                     self.update_display()
-                    pygame.time.wait(1)
+                    pygame.time.wait(SORTING_DELAY)
                     self.colors[j] = WHITE
                     j -= 1
                 else:

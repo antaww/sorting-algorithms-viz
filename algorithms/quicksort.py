@@ -29,7 +29,7 @@ class QuickSort(BaseSort):
             self.colors[j] = RED
             self.sound_manager.compare_sound.play()
             self.update_display()
-            pygame.time.wait(1)
+            pygame.time.wait(SORTING_DELAY)
             
             if self.array[j] < pivot:
                 i += 1
@@ -39,7 +39,7 @@ class QuickSort(BaseSort):
                 self.colors[i] = GREEN
                 self.colors[j] = WHITE
                 self.update_display()
-                pygame.time.wait(1)
+                pygame.time.wait(SORTING_DELAY)
             else:
                 self.colors[j] = WHITE
                 
@@ -49,7 +49,7 @@ class QuickSort(BaseSort):
         self.colors[i + 1] = GREEN
         self.colors[high] = WHITE
         self.update_display()
-        pygame.time.wait(1)
+        pygame.time.wait(SORTING_DELAY)
         
         return i + 1 
 
