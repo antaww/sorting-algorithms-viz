@@ -33,9 +33,13 @@ An interactive Python application that visualizes various sorting algorithms usi
    - 📝 Simple and adaptive algorithm
    - ✨ Efficient for small or nearly sorted data
 
+6. **Selection Sort** (O(n²))
+   - 🔍 Minimal memory writes
+   - 📊 Simple and predictable
+
 ## 🎮 Controls
 
-- **1-5**: Select sorting algorithm
+- **1-6**: Select sorting algorithm
 - **SPACE**: Start sorting
 - **ESC**: Reset/Return to menu
 - **TAB**: Focus input box for array size

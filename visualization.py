@@ -97,22 +97,23 @@ class Visualizer:
             ("Merge Sort", GREEN, "O(n log n)", "Stable & reliable", "2"),
             ("Shell Sort", BLUE, "O(n log n)", "Adaptive & efficient", "3"),
             ("Heapsort", YELLOW, "O(n log n)", "Memory efficient", "4"),
-            ("Insertion Sort", (200, 200, 200), "O(n²)", "Great for small data", "5")
+            ("Insertion Sort", (200, 200, 200), "O(n²)", "Great for small data", "5"),
+            ("Comb Sort", (150, 150, 255), "O(n²/2^p)", "Gap-based sorting", "6")
         ]
         
-        # Panneau principal des algorithmes ajusté - réduire la hauteur
-        algo_panel = pygame.Surface((900, 350), pygame.SRCALPHA)  # Hauteur réduite
+        # Panneau principal des algorithmes ajusté - augmenter la hauteur
+        algo_panel = pygame.Surface((900, 400), pygame.SRCALPHA)  # Hauteur augmentée de 350 à 400
         algo_panel.fill((255, 255, 255, 15))
         pygame.draw.rect(algo_panel, (255, 255, 255, 30), algo_panel.get_rect(), border_radius=20)
-        self.screen.blit(algo_panel, (WIDTH // 2 - 450, HEIGHT // 2 - 130))
+        self.screen.blit(algo_panel, (WIDTH // 2 - 450, HEIGHT // 2 - 150))  # Déplacé plus haut
         
         # Réduire l'espacement vertical entre les algorithmes
         for i, (name, color, complexity, description, key) in enumerate(algorithms):
             algo_rect = pygame.Rect(
                 WIDTH // 2 - 400,
-                HEIGHT // 2 - 110 + i * 60,  # Espacement réduit de 65 à 60
+                HEIGHT // 2 - 130 + i * 55,  # Espacement réduit de 60 à 55
                 800,
-                50  # Hauteur réduite de 55 à 50
+                45  # Hauteur réduite de 50 à 45
             )
             
             # Effet de survol avec plus de contraste
@@ -142,11 +143,11 @@ class Visualizer:
             desc_surface = self.font_instruction.render(f"{description} | {complexity}", True, (220, 220, 220))
             self.screen.blit(desc_surface, (algo_rect.x + 300, algo_rect.y + 18))
         
-        # Panneau inférieur pour les contrôles déplacé plus bas
+        # Déplacer le panneau de contrôle plus bas
         control_panel = pygame.Surface((900, 130), pygame.SRCALPHA)
         control_panel.fill((255, 255, 255, 15))
         pygame.draw.rect(control_panel, (255, 255, 255, 30), control_panel.get_rect(), border_radius=20)
-        self.screen.blit(control_panel, (WIDTH // 2 - 450, HEIGHT - 140))
+        self.screen.blit(control_panel, (WIDTH // 2 - 450, HEIGHT - 135))  # Ajusté de -140 à -135
         
         # Instructions avec icônes réorganisées sur deux colonnes
         instructions = [
