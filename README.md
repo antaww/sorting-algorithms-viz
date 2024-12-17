@@ -29,9 +29,13 @@ An interactive Python application that visualizes various sorting algorithms usi
    - 🌳 In-place sorting algorithm
    - 📦 Uses binary heap data structure
 
+5. **Insertion Sort** (O(n²))
+   - 📝 Simple and adaptive algorithm
+   - ✨ Efficient for small or nearly sorted data
+
 ## 🎮 Controls
 
-- **1-4**: Select sorting algorithm
+- **1-5**: Select sorting algorithm
 - **SPACE**: Start sorting
 - **ESC**: Reset/Return to menu
 - **TAB**: Focus input box for array size
