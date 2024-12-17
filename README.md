@@ -21,9 +21,9 @@ An interactive Python application that visualizes various sorting algorithms usi
    - 🔀 Divide and conquer approach
    - ✅ Stable sorting algorithm
 
-3. **Bubble Sort** (O(n²))
-   - 💫 Simple comparison-based sorting
-   - 📚 Great for educational purposes
+3. **Shell Sort** (O(n log n) to O(n^(3/2)))
+   - 🔄 Gap-based insertion sort
+   - 📈 More efficient than simple sorts
 
 4. **Heap Sort** (O(n log n))
    - 🌳 In-place sorting algorithm

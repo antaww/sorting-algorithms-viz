@@ -95,7 +95,7 @@ class Visualizer:
         algorithms = [
             ("Quicksort", RED, "O(n log n)", "Fast & widely used", "1"),
             ("Merge Sort", GREEN, "O(n log n)", "Stable & reliable", "2"),
-            ("Bubble Sort", BLUE, "O(n²)", "Simple & educational", "3"),
+            ("Shell Sort", BLUE, "O(n log n)", "Adaptive & efficient", "3"),
             ("Heapsort", YELLOW, "O(n log n)", "Memory efficient", "4"),
             ("Insertion Sort", (200, 200, 200), "O(n²)", "Great for small data", "5")
         ]
