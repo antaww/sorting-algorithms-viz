@@ -37,14 +37,14 @@ class BubbleSort(BaseSort):
                 self.comparisons += 1
                 self.colors[j] = RED
                 self.colors[j + 1] = RED
-                self.sound_manager.compare_sound.play()
+                self.sound_manager.play_comparison_sound(j, n)
                 self.update_display()
                 pygame.time.wait(SORTING_DELAY)
 
                 if self.array[j] > self.array[j + 1]:
                     self.swaps += 1
                     self.array[j], self.array[j + 1] = self.array[j + 1], self.array[j]
-                    self.sound_manager.swap_sound.play()
+                    self.sound_manager.play_swap_sound(j, n)
                     self.colors[j] = GREEN
                     self.colors[j + 1] = GREEN
                     self.update_display()

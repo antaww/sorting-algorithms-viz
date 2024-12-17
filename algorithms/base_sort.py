@@ -35,6 +35,6 @@ class BaseSort:
         # Effet de balayage final
         for i in range(len(self.array)):
             self.colors[i] = WHITE
-            self.sound_manager.sweep_sound.play()
+            self.sound_manager.play_comparison_sound(i, len(self.array))
             self.update_display()
             pygame.time.wait(SWEEP_DELAY)

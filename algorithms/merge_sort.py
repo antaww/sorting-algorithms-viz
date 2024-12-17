@@ -44,7 +44,7 @@ class MergeSort(BaseSort):
             self.colors[k] = RED
             self.colors[start + i] = YELLOW
             self.colors[mid + j] = YELLOW
-            self.sound_manager.compare_sound.play()
+            self.sound_manager.play_comparison_sound(k, len(self.array))
             self.update_display()
             pygame.time.wait(SORTING_DELAY)
 
@@ -56,6 +56,7 @@ class MergeSort(BaseSort):
                 j += 1
 
             self.swaps += 1
+            self.sound_manager.play_swap_sound(k, len(self.array))
             self.colors[k] = GREEN
             self.update_display()
             pygame.time.wait(SORTING_DELAY)
@@ -66,7 +67,7 @@ class MergeSort(BaseSort):
             self.array[k] = left[i]
             self.swaps += 1
             self.colors[k] = GREEN
-            self.sound_manager.compare_sound.play()
+            self.sound_manager.play_swap_sound(k, len(self.array))
             self.update_display()
             pygame.time.wait(SORTING_DELAY)
             self.colors[k] = WHITE
@@ -77,7 +78,7 @@ class MergeSort(BaseSort):
             self.array[k] = right[j]
             self.swaps += 1
             self.colors[k] = GREEN
-            self.sound_manager.compare_sound.play()
+            self.sound_manager.play_swap_sound(k, len(self.array))
             self.update_display()
             pygame.time.wait(SORTING_DELAY)
             self.colors[k] = WHITE

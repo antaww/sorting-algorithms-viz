@@ -19,15 +19,22 @@ from .base_sort import BaseSort
 from constants import *
 
 class QuickSort(BaseSort):
+    def __init__(self, array, colors, visualizer, sound_manager):
+        super().__init__(array, colors, visualizer, sound_manager)
+        self.sort_interrupt = False
+
     def _partition(self, low, high):
         pivot = self.array[high]
         self.colors[high] = BLUE
         i = low - 1
         
         for j in range(low, high):
+            if self.sort_interrupt:
+                return i + 1
+                
             self.comparisons += 1
             self.colors[j] = RED
-            self.sound_manager.compare_sound.play()
+            self.sound_manager.play_comparison_sound(j, len(self.array))
             self.update_display()
             pygame.time.wait(SORTING_DELAY)
             
@@ -35,7 +42,7 @@ class QuickSort(BaseSort):
                 i += 1
                 self.swaps += 1
                 self.array[i], self.array[j] = self.array[j], self.array[i]
-                self.sound_manager.swap_sound.play()
+                self.sound_manager.play_swap_sound(i, len(self.array))
                 self.colors[i] = GREEN
                 self.colors[j] = WHITE
                 self.update_display()
@@ -45,7 +52,7 @@ class QuickSort(BaseSort):
                 
         self.swaps += 1
         self.array[i + 1], self.array[high] = self.array[high], self.array[i + 1]
-        self.sound_manager.swap_sound.play()
+        self.sound_manager.play_swap_sound(i + 1, len(self.array))
         self.colors[i + 1] = GREEN
         self.colors[high] = WHITE
         self.update_display()
@@ -54,7 +61,7 @@ class QuickSort(BaseSort):
         return i + 1 
 
     def sort(self, low, high):
-        if low < high:
+        if low < high and not self.sort_interrupt:
             pivot_index = self._partition(low, high)
             self.sort(low, pivot_index - 1)
             self.sort(pivot_index + 1, high)
